@@ -277,6 +277,20 @@ Potential future enhancements include:
 
 These are future enhancements and are not claimed as implemented features.
 
+
+
+### AI Tools and Contribution Disclosure
+
+**Design and Prototyping:** I independently created the UI designs and interactive prototype in Figma, including the visual layout, component styling, information hierarchy, and user flows.
+
+**AI-Assisted Requirement Analysis:** I used ChatGPT to help interpret the assessment brief, understand the expected dashboard features, identify key user flows, and clarify the scope of the frontend implementation.
+
+**AI-Assisted Development:** I used Antigravity as an AI coding assistant to implement the React frontend, build reusable components, refine layouts, troubleshoot code issues, and improve responsiveness.
+
+**My Contribution:** I made the design decisions, reviewed the generated implementation against my intended designs, and refined the application through iterative feedback and testing. The application uses mock data and localStorage for demonstration purposes; authentication, permissions, and invitation delivery are simulated.
+
+AI tools were used to assist with development, while the design direction and final submission decisions were guided by my own work and review.
+
 ## License
 
 Created for educational and assessment purposes.

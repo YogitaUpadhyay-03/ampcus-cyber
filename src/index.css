@@ -659,6 +659,120 @@ tbody tr:hover { background: var(--neutral-50); }
 .role-option-name { font-size: 13.5px; font-weight: 600; color: var(--neutral-800); }
 .role-option-desc { font-size: 12px; color: var(--neutral-500); margin-top: 2px; }
 
+/* ── role-change-hint (old inline hint, kept for safety) ── */
+.role-change-hint {
+  font-size: 12.5px;
+  color: var(--neutral-500);
+  margin-top: 14px;
+  padding: 10px 12px;
+  background: var(--neutral-100);
+  border-radius: var(--radius-md);
+  line-height: 1.5;
+}
+
+/* ── Confirm-Role-Change modal (Step 2) ─────────────────────
+   Matches Figma: "Confirm role change" / role pills / info box
+   ─────────────────────────────────────────────────────────── */
+
+/* Narrower card for the confirmation step */
+.crm-modal { max-width: 420px; }
+
+/* Extra breathing room in the body */
+.crm-body { padding-top: 16px; padding-bottom: 8px; }
+
+/* "Change X's role?" question text */
+.crm-question {
+  font-size: 14px;
+  color: var(--neutral-700);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.crm-question strong { color: var(--neutral-900); }
+
+/* OldRole → NewRole transition row */
+.crm-transition {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Role pills */
+.crm-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+.crm-pill-admin   { background: var(--red-100);    color: var(--red-700);    }
+.crm-pill-manager { background: var(--blue-100);   color: var(--blue-700);   }
+.crm-pill-viewer  { background: var(--neutral-100);color: var(--neutral-600);}
+
+/* Arrow between pills */
+.crm-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--neutral-400);
+  flex-shrink: 0;
+}
+
+/* "What changes" info box */
+.crm-info-box {
+  background: var(--blue-100);
+  border: 1px solid #bfdbfe;   /* blue-200 */
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  animation: fadeIn .15s ease;
+}
+
+.crm-info-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.crm-info-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue-700);
+}
+
+.crm-info-dismiss {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--blue-700);
+  opacity: .6;
+  padding: 2px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  transition: opacity .15s;
+}
+.crm-info-dismiss:hover { opacity: 1; }
+
+.crm-info-text {
+  font-size: 12.5px;
+  color: var(--blue-700);
+  line-height: 1.55;
+}
+
+/* Responsive: full-width on mobile */
+@media (max-width: 480px) {
+  .crm-modal  { max-width: 100%; }
+  .crm-transition { flex-wrap: wrap; }
+}
+
+
+
 /* ── Alert Banner ── */
 .alert {
   display: flex;
@@ -1038,31 +1152,205 @@ tbody tr:hover { background: var(--neutral-50); }
 .email-status {
   display: inline-flex;
   align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+.email-status-sending { background: var(--neutral-100); color: var(--neutral-500); }
+.email-status-sent    { background: var(--green-100);   color: var(--green-700);   }
+.email-status-failed  { background: var(--red-100);     color: var(--red-700);     }
+.email-status-na      { font-size: 12px; color: var(--neutral-400); }
+
+/* ── Spinner extra-small variant ── */
+.spinner-xs { width: 10px; height: 10px; border-width: 1.5px; }
+
+/* ═══════════════════════════════════════════════════════════
+   INVITATIONS PAGE LAYOUT
+   ═══════════════════════════════════════════════════════════ */
+
+/* Subtitle simulated label */
+.simulated-label {
+  font-size: 12px;
+  color: var(--neutral-400);
+  font-weight: 400;
+}
+
+/* ── Summary stat cards ── */
+.inv-summary-row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.inv-stat-card {
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: var(--shadow-sm);
+}
+.inv-stat-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--neutral-900);
+  line-height: 1;
+}
+.inv-stat-label {
+  font-size: 12px;
+  color: var(--neutral-400);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+/* ── Filter tabs ── */
+.inv-filter-tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--neutral-100);
+  border-radius: var(--radius-lg);
+  padding: 4px;
+}
+.inv-filter-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--neutral-500);
+  cursor: pointer;
+  transition: background .15s, color .15s, box-shadow .15s;
+  white-space: nowrap;
+}
+.inv-filter-tab:hover { background: #fff; color: var(--neutral-700); }
+.inv-filter-tab.active {
+  background: #fff;
+  color: var(--neutral-800);
+  box-shadow: var(--shadow-sm);
+}
+.inv-filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 18px;
+  padding: 0 5px;
+  background: var(--neutral-200);
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--neutral-600);
+  transition: background .15s, color .15s;
+}
+.inv-filter-tab.active .inv-filter-count {
+  background: var(--purple-100);
+  color: var(--purple-700);
+}
+
+/* ── Invitation status badge ── */
+.inv-status-badge {
+  display: inline-flex;
+  align-items: center;
   gap: 5px;
   font-size: 12px;
   font-weight: 500;
-  padding: 3px 8px;
+  padding: 3px 9px;
   border-radius: var(--radius-full);
+  white-space: nowrap;
 }
-.email-status-sending {
-  background: var(--neutral-100);
-  color: var(--neutral-500);
+.inv-status-pending   { background: var(--amber-100); color: var(--amber-700); }
+.inv-status-cancelled { background: var(--neutral-100); color: var(--neutral-500); }
+
+/* ── Table cell helpers ── */
+.inv-invited-by {
+  font-size: 13px;
+  color: var(--neutral-600);
 }
-.email-status-sent {
-  background: var(--green-100);
-  color: var(--green-700);
+.inv-time-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
 }
-.email-status-failed {
-  background: var(--red-100);
-  color: var(--red-700);
+.inv-time {
+  font-size: 13px;
+  color: var(--neutral-400);
+  white-space: nowrap;
+}
+.inv-actions-cell {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.inv-cancelled-label {
+  font-size: 12px;
+  color: var(--neutral-400);
+  font-style: italic;
 }
 
-/* ── Spinner extra-small variant ── */
-.spinner-xs {
-  width: 10px;
-  height: 10px;
-  border-width: 1.5px;
+/* ── Danger-soft button variant (cancel) ── */
+.btn-danger-soft {
+  background: var(--red-100);
+  color: var(--red-700);
+  border: 1px solid #fca5a5;
 }
+.btn-danger-soft:hover:not(:disabled) {
+  background: var(--red-200);
+  border-color: #f87171;
+}
+
+/* ── Sample data tag ── */
+.sample-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 1px 6px;
+  background: var(--purple-100);
+  color: var(--purple-700);
+  border-radius: var(--radius-full);
+}
+
+/* ── Info notice bar ── */
+.info-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--blue-100);
+  border: 1px solid #bfdbfe;
+  border-radius: var(--radius-md);
+  font-size: 12.5px;
+  color: var(--blue-700);
+  margin-top: 16px;
+  line-height: 1.5;
+}
+.info-notice svg { flex-shrink: 0; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .inv-summary-row { gap: 10px; }
+  .inv-stat-card   { padding: 12px 14px; }
+  .inv-stat-value  { font-size: 22px; }
+}
+@media (max-width: 600px) {
+  .inv-summary-row { flex-wrap: wrap; }
+  .inv-filter-tabs { overflow-x: auto; }
+  .inv-actions-cell { flex-direction: column; align-items: flex-start; }
+}
+
 
 /* ============================================================
    AUTH SCREENS (Sign In, Create Account)

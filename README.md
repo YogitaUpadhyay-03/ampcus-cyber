@@ -1,239 +1,289 @@
-# Ampcus Cyber – Customer Administration Portal
+# Ampcus Cyber — Customer Administration Portal
 
-A complete React/Vite frontend with real email invitation delivery via [Resend](https://resend.com),
-deployed as a full-stack application on [Vercel](https://vercel.com).
+A modern, responsive Customer Administration Portal designed and developed as part of a **UI/UX Design and Frontend Development practical assessment**.
+
+The application demonstrates how administrators can manage team members, invite colleagues, review roles and access, and monitor administrative activity through a clean enterprise-style interface.
+
+## Project Links
+
+| Deliverable | Link |
+|---|---|
+| Live Demo | [Ampcus Cyber Portal](https://ampcus-cyber.vercel.app/) |
+| Figma Design File | [View Design in Figma](https://www.figma.com/design/lgiAAaSTFYltmMqkx2pmj5/ampcus-cyber?node-id=0-1&t=BqUBPvlckqZLb6Kp-1) |
+| Interactive Prototype | [Explore the Figma Prototype](https://www.figma.com/proto/lgiAAaSTFYltmMqkx2pmj5/ampcus-cyber?node-id=1-312&p=f&viewport=237%2C169%2C0.05&t=252CyHaisnDvtPAB-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1) |
+
+*Note: The Figma links require appropriate sharing permissions to be enabled.*
 
 ---
 
-## Quick start (local, no real email)
+## Overview
+
+The Ampcus Cyber Customer Administration Portal focuses on usability, clarity, and efficient administrative workflows.
+
+The project includes a high-fidelity UI design, a clickable prototype, and a React-based frontend implementation. It uses mock data and browser local storage to demonstrate application behavior without requiring a backend or database.
+
+### Project Goals
+
+- Create a professional enterprise administration experience.
+- Make user management and invitation workflows straightforward.
+- Present role information and access-related details clearly.
+- Provide meaningful feedback for user actions, validation errors, and empty states.
+- Build a responsive frontend that can be demonstrated independently.
+- Maintain consistency between the design, prototype, and implementation.
+
+## Technology Stack
+
+- **Frontend:** React 19
+- **Build Tool:** Vite
+- **Styling:** CSS
+- **Data:** Mock data and browser `localStorage`
+- **Design:** Figma
+- **Development Assistance:** Antigravity AI coding assistant
+- **Deployment:** Vercel
+
+The application does not require a backend, database, or paid API service for its current demonstration.
+
+## Features
+
+### 1. Dashboard
+
+- Summary cards for user and invitation statistics.
+- Recent administrative activity.
+- Quick access to key administration pages.
+- Overview of the current workspace.
+
+### 2. User Management
+
+- View team members in a structured table.
+- Search users by name or email.
+- Filter users by role and status.
+- Navigate through paginated user records.
+- View user roles, account status, and last activity.
+- Display appropriate empty states when no users match the filters.
+
+### 3. Invitations
+
+- Invite a colleague using their name, email address, and role.
+- Validate required fields and email format.
+- Detect duplicate pending invitations.
+- Display pending invitations separately from existing users.
+- Resend or cancel invitations in the simulated interface.
+- Show feedback for successful actions and validation errors.
+
+**Important:** Invitation delivery is simulated. No real email is sent.
+
+### 4. Roles & Access
+
+- View available roles: Admin, Manager, and Viewer.
+- Understand the intended responsibilities of each role.
+- Review role descriptions and permission information.
+- Change a user's role through the available interface.
+- Confirm role changes where supported by the implementation.
+
+The permission information is demonstrative and does not constitute real server-side access control.
+
+### 5. Activity Log
+
+- View administrative activity records.
+- Review actions such as invitations and role changes.
+- Filter activity records where supported.
+- Distinguish sample activity from actions performed during the demonstration.
+
+### 6. Authentication
+
+- Sign-in screen with a preconfigured demo account.
+- Create-account flow for new simulated accounts.
+- Password validation and sign-up feedback where implemented.
+- Logout confirmation.
+- Session handling through browser local storage.
+
+Authentication is simulated on the frontend. It is not secure production authentication.
+
+### 7. Three-Step Onboarding
+
+New simulated accounts can go through a three-step onboarding flow:
+
+1. **Organisation:** Enter organization details.
+2. **Teammates:** Add teammate details if needed; this step is optional.
+3. **Finish:** Complete the setup and continue to the dashboard.
+
+The onboarding flow is intended to make the initial workspace setup clear and straightforward.
+
+### 8. Workspace Data Separation
+
+- The demo account displays preloaded sample data.
+- Newly registered accounts are intended to start with a separate, clean workspace.
+- Workspace records can be persisted in local storage.
+- Returning to an account restores its saved browser-local data, subject to the current implementation.
+
+This is a frontend demonstration. Data is stored in the current browser and is not shared across devices or users.
+
+### 9. Responsive Interface
+
+The layout is designed to adapt to different screen sizes, including desktop, laptop, tablet, and mobile.
+
+Responsive behavior includes adaptive dashboard cards, a mobile navigation drawer where implemented, and adjustments to tables and page layouts.
+
+## Demo Account
+
+Use the following credentials if they match the current deployed demo configuration.
+
+| Field | Value |
+|---|---|
+| Email | `alex.morgan@example.com` |
+| Password | `password123` |
+
+The demo account is intended to display preloaded sample data, including team members, pending invitations, and activity records.
+
+If the credentials do not work on the live deployment, verify the current sign-in implementation before presenting the project.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 20.19 or newer
+- npm
+- Git
+
+### Run Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/YogitaUpadhyay-03/ampcus-cyber.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd ampcus-cyber
+```
+
+Install dependencies:
 
 ```bash
 npm install
-npm run dev          # Vite dev server at http://localhost:5173
 ```
 
-The UI works fully in this mode. Invitation emails will **fail gracefully** 
-(the invitation is saved in state, email status shows "Failed") because there 
-is no `/api` server running. This is expected and clearly shown in the UI.
-
----
-
-## Local development with real email
-
-You need the **Vercel CLI** to run the serverless API functions locally.
-
-### 1. Install Vercel CLI (once)
+Start the development server:
 
 ```bash
-npm install -g vercel
-vercel login
+npm run dev
 ```
 
-### 2. Set up environment variables
+Open the local URL shown in the terminal, usually:
+
+```text
+http://localhost:5173
+```
+
+### Available Commands
+
+| Command | Purpose |
+|---|---|
+| `npm run dev` | Start the local development server |
+| `npm run build` | Generate the production build |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run the configured linter, if available |
+
+## Build for Production
+
+Run:
 
 ```bash
-# Copy the example file
-cp .env.example .env
+npm run build
 ```
 
-Edit `.env` and fill in your real values:
+Vite generates the production files in the `dist/` directory.
 
-```env
-RESEND_API_KEY=re_YourRealKeyHere
-RESEND_FROM_EMAIL=onboarding@resend.dev
-APP_URL=http://localhost:3000
-```
-
-> **NEVER commit `.env` to Git.** It is already listed in `.gitignore`.
-
-### 3. Start the full dev environment
+To preview the production build locally:
 
 ```bash
-vercel dev
+npm run preview
 ```
 
-`vercel dev` starts **both** the Vite frontend and the Node.js serverless functions
-on port `3000`. The Vite proxy (`vite.config.js`) forwards `/api/*` requests there.
+## Deployment
 
-> If `vercel dev` prompts you to link a project, choose "No" or link to your Vercel project.
+The project is intended to be deployed to Vercel as a Vite + React frontend.
 
-### 4. Test an invitation email
+Typical deployment settings:
 
-1. Open http://localhost:3000
-2. Click **Invite user**, fill in your own email address, select a role, and click Send.
-3. The invitation appears in the **Invitations** page with status **Accepted**.
-4. Check your inbox. The email is sent via Resend.
+| Setting | Value |
+|---|---|
+| Framework | Vite |
+| Build Command | `npm run build` |
+| Output Directory | `dist` |
+| Install Command | `npm install` |
 
-> **Important:** With a free Resend account and the sandbox sender
-> (`onboarding@resend.dev`), you can only send to your own verified email address
-> until you verify a domain. See [Resend docs → Domain verification](https://resend.com/docs/dashboard/domains/introduction).
+The project does not require environment variables for its mock-data demonstration, provided no unused API integration remains in the active codebase.
+
+After deployment, open the live URL and verify sign-in, sign-up, onboarding, navigation, logout, and the main administrative workflows.
+
+## Data and Security Limitations
+
+This project is a frontend assessment demonstration, not a production-ready administration system.
+
+- Authentication is simulated in the browser.
+- No real backend or database is connected.
+- Invitation emails are not sent.
+- Data is stored locally in the browser and is not synchronized between devices.
+- Local storage is not a secure storage mechanism for sensitive information.
+- Role and permission descriptions do not enforce server-side authorization.
+- Password recovery and other backend-dependent workflows may be placeholders.
+- Browser data can be cleared, and local data may be lost.
+- No claim of production security or real multi-user access control is made.
+
+A production implementation would require secure authentication, server-side authorization, a persistent database, validated APIs, and a real invitation-delivery workflow.
+
+## Design Deliverables
+
+The Figma design file and prototype include the visual direction and interaction flows for the administration portal.
+
+The design work focuses on:
+
+- Information hierarchy and navigation.
+- Reusable interface components.
+- Dashboard and user-management layouts.
+- Invitation and role-management workflows.
+- Sign-in, sign-up, and three-step onboarding.
+- Clear feedback, validation, and empty states.
+- Consistent typography, spacing, and visual styling.
+
+See the [Figma Design File](https://www.figma.com/design/lgiAAaSTFYltmMqkx2pmj5/ampcus-cyber?node-id=0-1&t=BqUBPvlckqZLb6Kp-1) and [Interactive Prototype](https://www.figma.com/proto/lgiAAaSTFYltmMqkx2pmj5/ampcus-cyber?node-id=1-312&p=f&viewport=237%2C169%2C0.05&t=252CyHaisnDvtPAB-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1).
+
+## AI Tools and Contribution
+
+AI-assisted development tools were used during the project.
+
+- **Figma design and prototype:** Created with assistance from Claude and reviewed as part of the design workflow.
+- **Frontend development:** Developed with assistance from Antigravity.
+- **Project review:** The implementation and documentation should be reviewed and verified before final submission.
+
+The final implementation should be understood and reviewed by the project author, who should be prepared to explain the design decisions, frontend behavior, data handling, and known limitations.
+
+## Future Improvements
+
+Potential future enhancements include:
+
+- Secure authentication and account recovery.
+- Backend APIs and persistent database storage.
+- Real invitation emails with expiring invitation links.
+- Server-side role-based access control.
+- Suspend and reactivate user workflows.
+- Automated unit and end-to-end tests.
+- Improved modal focus management and accessibility testing.
+- Shared workspace data across devices.
+- Expanded audit logging and administrative controls.
+
+These are future enhancements and are not claimed as implemented features.
+
+## License
+
+Created for educational and assessment purposes.
 
 ---
 
-## Resend account setup
-
-1. Sign up at https://resend.com
-2. Go to **API Keys** → **Create API Key** → copy the key.
-3. Add the key to your `.env` as `RESEND_API_KEY`.
-4. The sandbox sender `onboarding@resend.dev` works for testing without domain verification.
-5. To send to any recipient, go to **Domains** → **Add Domain** → verify DNS records for your domain.
-6. Once your domain is verified, set `RESEND_FROM_EMAIL=noreply@yourdomain.com`.
-
-> ⚠️ **Regenerate your API key** if you ever accidentally expose it in a public location
-> (e.g., a chat message, a public Git commit, a screenshot). Do this in the Resend dashboard
-> under **API Keys → Revoke → Create new**.
-
----
-
-## Deployment to Vercel
-
-### First deployment
-
-```bash
-vercel --prod
-```
-
-Vercel will detect the project, run `npm run build`, deploy `dist/` as the frontend,
-and deploy `api/send-invitation.js` as a serverless function.
-
-### Set environment variables on Vercel
-
-**Method 1 – Vercel dashboard (recommended):**
-
-1. Open your project on https://vercel.com
-2. Go to **Settings → Environment Variables**
-3. Add each of the following:
-
-| Variable | Value |
-|----------|-------|
-| `RESEND_API_KEY` | Your Resend API key (starts with `re_`) |
-| `RESEND_FROM_EMAIL` | `onboarding@resend.dev` (or your verified domain sender) |
-| `APP_URL` | `https://your-project.vercel.app` |
-
-4. Set them for **Production**, **Preview**, and **Development** environments as appropriate.
-5. Redeploy: Vercel dashboard → **Deployments** → **Redeploy** (or push a new commit).
-
-**Method 2 – Vercel CLI:**
-
-```bash
-vercel env add RESEND_API_KEY
-vercel env add RESEND_FROM_EMAIL
-vercel env add APP_URL
-vercel --prod
-```
-
-### Subsequent deployments
-
-```bash
-vercel --prod
-# or simply push to your connected Git branch
-```
-
----
-
-## Project structure
-
-```
-├── api/
-│   └── send-invitation.js   # Vercel serverless function (server-side only)
-├── src/
-│   ├── utils.js             # fmtTime, makeInitials
-│   ├── data/mockData.js     # Initial users, invitations, roles, localStorage helpers
-│   ├── components/
-│   │   ├── Dashboard.jsx
-│   │   ├── UsersPage.jsx
-│   │   ├── InvitationsPage.jsx  ← shows email delivery status
-│   │   ├── RolesPage.jsx
-│   │   ├── ActivityLogPage.jsx
-│   │   ├── InviteModal.jsx      ← calls /api/send-invitation
-│   │   ├── ChangeRoleModal.jsx
-│   │   ├── Sidebar.jsx
-│   │   ├── Toast.jsx
-│   │   └── Icons.jsx
-│   ├── App.jsx              ← shared state, routing, API call handlers
-│   ├── main.jsx
-│   └── index.css
-├── .env.example             ← copy to .env and fill in values
-├── .gitignore               ← .env is excluded
-├── vercel.json              ← Vercel build + function config
-├── vite.config.js           ← Vite + /api proxy for local dev
-└── package.json
-```
-
----
-
-## How the email flow works
-
-```
-Browser                     Vite/Vercel               Resend API
-   │                            │                          │
-   │── POST /api/send-invitation ──►                        │
-   │   { name, email, role,     │                          │
-   │     invitedBy }            │                          │
-   │                       reads RESEND_API_KEY            │
-   │                       from process.env                │
-   │                            │── resend.emails.send() ──►│
-   │                            │◄── { id } or { error } ──│
-   │◄── { ok, emailId } or ─────│                          │
-   │    { error: "..." }        │                          │
-   │                            │                          │
-```
-
-- The API key is **never** sent to the browser.
-- `emailStatus` on each invitation reflects whether Resend accepted the request:
-  - `sending` — API call in progress
-  - `sent` — Resend accepted the send request (not a delivery confirmation)
-  - `failed` — Resend returned an error (shown in UI and toast)
-- Actual delivery (inbox placement, bounce, spam) is handled asynchronously by Resend.
-  This app does **not** claim an email was delivered, only that it was accepted.
-
----
-
-## Invitation acceptance flow — why there are no acceptance links
-
-A functional invitation acceptance link (`/accept?token=xxx`) requires:
-
-1. A **persistent database** to store `(token → invitation)` mappings.
-2. A **server-side route** to validate the token and mark the invitation as accepted.
-3. **Session management** or an authentication system for the accepting user.
-
-This project uses `localStorage` only — there is no database or auth system. Adding
-fake acceptance links that don't actually work would be misleading and is intentionally
-omitted. The email instead instructs the recipient to contact their administrator.
-
-To implement a real acceptance flow, add:
-- A database (e.g. Vercel Postgres, PlanetScale, Supabase)
-- A `api/accept-invitation.js` function that validates the token
-- An `/accept` page in the React app
-
----
-
-## Known limitations
-
-| Area | Notes |
-|------|-------|
-| Email delivery guarantee | Resend accepting the request ≠ inbox delivery. Bounces happen asynchronously. |
-| Sender address | Free accounts can only send to your own verified email unless a domain is verified. |
-| Invitation acceptance | No self-service acceptance flow — requires a database. |
-| Suspend/unsuspend action | Lucas Meyer is seeded as Suspended; the UI action is not implemented. |
-| Authentication | Alex Morgan is a simulated session; no real login/logout. |
-| Multi-user state | All state is in `localStorage` — changes are per-browser, not shared across users. |
-
----
-
-## Commands reference
-
-| Command | What it does |
-|---------|-------------|
-| `npm run dev` | Vite dev server only (no API) |
-| `vercel dev` | Full dev: Vite frontend + serverless functions |
-| `npm run build` | Production build to `dist/` |
-| `vercel --prod` | Deploy to Vercel production |
-
----
-
-## AI disclosure
-
-Built with **Antigravity (Google DeepMind AI assistant)**.
-Human operator provided: design screenshots, assessment brief, Resend account, review.
-All code was executed and tested in a live development environment.
+**Project:** Ampcus Cyber — Customer Administration Portal  
+**Live Demo:** [ampcus-cyber.vercel.app](https://ampcus-cyber.vercel.app/)  
+**Design:** [Figma](https://www.figma.com/design/lgiAAaSTFYltmMqkx2pmj5/ampcus-cyber?node-id=0-1&t=BqUBPvlckqZLb6Kp-1)  
+**Prototype:** [Open Prototype](https://www.figma.com/proto/lgiAAaSTFYltmMqkx2pmj5/ampcus-cyber?node-id=1-312&p=f&viewport=237%2C169%2C0.05&t=252CyHaisnDvtPAB-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1)
